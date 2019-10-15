@@ -1275,6 +1275,11 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.3.tgz#bdfd69d61e464dcc81b25159c270d75a73c1a636"
   integrity sha512-Il2DtDVRGDcqjDtE+rF8iqg1CArehSK84HZJCT7AMITlyXRBpuPhqGLDQMowraqqu1coEaimg4ZOqggt6L6L+A==
 
+"@types/lodash@^4.14.144":
+  version "4.14.144"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.144.tgz#12e57fc99064bce45e5ab3c8bc4783feb75eab8e"
+  integrity sha512-ogI4g9W5qIQQUhXAclq6zhqgqNUr7UlFaqDHbch7WLSLeeM/7d3CRaw7GLajxvyFvhJqw4Rpcz5bhoaYtIx6Tg==
+
 "@types/node@12.7.12":
   version "12.7.12"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.12.tgz#7c6c571cc2f3f3ac4a59a5f2bd48f5bdbc8653cc"
@@ -1517,6 +1522,28 @@
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
+
+"@yarnpkg/fslib@2.0.0-rc.5":
+  version "2.0.0-rc.5"
+  resolved "https://registry.yarnpkg.com/@yarnpkg/fslib/-/fslib-2.0.0-rc.5.tgz#e781f036bcef47fd7cc93da5bc9b66ccfd667107"
+  integrity sha512-azG2UeXjM6duxgsQD774a9uMRpwJhrJPLQGKo9HsWVHdIeJUqnXS5oiWCqPhuwB9M5UJ2k0F7kNb17Ted89lTw==
+  dependencies:
+    "@yarnpkg/libzip" "2.0.0-rc.3"
+    tmp "^0.0.33"
+
+"@yarnpkg/libzip@2.0.0-rc.3":
+  version "2.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@yarnpkg/libzip/-/libzip-2.0.0-rc.3.tgz#1295d8744360bc3002acbb3683094fd1bd89b1c5"
+  integrity sha512-Ogbq60WSUKvFjkbkEvEOcfOmzQv3k2RMCIWEWTOoxQ0J2tf5vCmD2pMUEi+lYQ1w0tmHur3H0h3Jrwqk2R+Axw==
+
+"@yarnpkg/pnpify@^2.0.0-rc.7":
+  version "2.0.0-rc.7"
+  resolved "https://registry.yarnpkg.com/@yarnpkg/pnpify/-/pnpify-2.0.0-rc.7.tgz#0427e3d9f881db39176de3e52c59b40685552106"
+  integrity sha512-UlmFUSqB4/4SS5Ji/k4cwCtDOL5BZj6UyQwZOsODmMSLQ+TN0iGbFKF5MTH7YntUjqDPO8vRBj312oqyrsxYxg==
+  dependencies:
+    "@yarnpkg/fslib" "2.0.0-rc.5"
+    cross-spawn "^6.0.5"
+    json5 "^2.1.0"
 
 abab@^2.0.0:
   version "2.0.2"
@@ -8039,7 +8066,7 @@ react-dev-utils@^9.1.0:
     strip-ansi "5.2.0"
     text-table "0.2.0"
 
-react-dom@16.10.2:
+react-dom@^16.10.2:
   version "16.10.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.10.2.tgz#4840bce5409176bc3a1f2bd8cb10b92db452fda6"
   integrity sha512-kWGDcH3ItJK4+6Pl9DZB16BXYAZyrYQItU4OMy0jAkv5aNqc+mAKb4TpFtAteI6TJZu+9ZlNhaeNQSVQDHJzkw==
@@ -8120,7 +8147,7 @@ react-scripts@3.2.0:
   optionalDependencies:
     fsevents "2.0.7"
 
-react@16.10.2:
+react@^16.10.2:
   version "16.10.2"
   resolved "https://registry.yarnpkg.com/react/-/react-16.10.2.tgz#a5ede5cdd5c536f745173c8da47bda64797a4cf0"
   integrity sha512-MFVIq0DpIhrHFyqLU0S3+4dIcBhhOvBE8bJ/5kHPVOVaGdo0KuiQzpcjCPsf585WvhypqtrMILyoE2th6dT+Lw==
