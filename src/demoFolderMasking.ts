@@ -1,3 +1,4 @@
+import { sortBy } from 'lodash'
 import { find } from 'lodash/fp'
 
 export const testCompiler: () => number | undefined = () => {
