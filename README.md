@@ -1,14 +1,18 @@
 # Demo of a couple of problems in ts-pnp
 
-We're investigating porting over to yarn plug and play, and we ran into 2 problems in module resolution
-in yarn pnp
-1. Folder masking
+We're investigating porting over to yarn plug and play, and we've hit 3 problems so far in yarn pnp.
+
+1. Folder masking (ts-pnp)
   * If there is a folder with the same name as a file, ts-pnp will look in the folder rather than loading
    the file
-2. typesVersion
+2. typesVersion (ts-pnp)
   * Typescript allows different paths to be referenced depending on the version of typescript (see 
     https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-1.html#version-selection-with-typesversions).
     This hasn't been implemented in ts-pnp
+3. types for dependencies not resolved (pnpify)
+  * If a dependency requires a type to compile that is supplied as project dependency, then running `yarn pnpify tsc` 
+    will not resolve the type.
+
 
 ## Steps to reproduce
 
@@ -47,3 +51,35 @@ The `fp.d.ts` file should be resolved, but instead the `fp` directory is searche
 
 This occurs because ts-pnp resolves `lodash/fp.d.ts` instead of `lodash/ts3.1/fp.d.ts`
 
+5. To see the pnpify bug, run the following command: `yarn pnpify tsc`; the first two errors don't occur, but you should get an error like:
+
+```
+$ /home/ljsmith/.cache/yarn/v6/npm-@yarnpkg-pnpify-2.0.0-rc.7-0427e3d9f881db39176de3e52c59b40685552106-integrity/node_modules/@yarnpkg/pnpify/.bin/pnpify tsc
+src/App.tsx:29:9 - error TS2605: JSX element type 'ReactMarkdown' is not a constructor function for JSX elements.
+  Type 'ReactMarkdown' is missing the following properties from type 'ElementClass': render, context, setState, forceUpdate, and 3 more.
+
+ 29         <ReactMarkdown
+            ~~~~~~~~~~~~~~
+ 30           source="a string"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+...
+ 33           linkTarget="_blank"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 34         />
+    ~~~~~~~~~~
+
+src/App.tsx:29:9 - error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+
+ 29         <ReactMarkdown
+            ~~~~~~~~~~~~~~
+ 30           source="a string"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+...
+ 33           linkTarget="_blank"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 34         />
+    ~~~~~~~~~~
+```
+
+This problem occurs because typescript looks for dependencies for a file by walking up the file system. When using pnpify, 
+typescript walks up out of the cache directory, and misses the dependencies available in the project
