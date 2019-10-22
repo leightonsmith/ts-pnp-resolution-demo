@@ -1,6 +1,14 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import logo from './logo.svg';
 import './App.css';
+import htmlParser from 'react-markdown/plugins/html-parser';
+
+
+const parseHtml = htmlParser({
+  isValidNode: node => node.type === 'tag' && node.name === 'abbr'
+});
+
 
 const App: React.FC = () => {
   return (
@@ -18,6 +26,12 @@ const App: React.FC = () => {
         >
           Learn React
         </a>
+        <ReactMarkdown
+          source="a string"
+          escapeHtml={false}
+          astPlugins={[parseHtml]}
+          linkTarget="_blank"
+        />
       </header>
     </div>
   );
