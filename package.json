@@ -13,7 +13,8 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-markdown": "4.1.0",
-    "react-scripts": "3.2.0",
+    "react-scripts": "https://github.com/leightonsmith/react-scripts.git",
+    "ts-pnp": "https://github.com/leightonsmith/ts-pnp.git#use-pnpify",
     "typescript": "3.6.4"
   },
   "scripts": {
