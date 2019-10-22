@@ -17,6 +17,9 @@
     "ts-pnp": "https://github.com/leightonsmith/ts-pnp.git#use-pnpify",
     "typescript": "3.6.4"
   },
+  "resolutions": {
+    "ts-pnp": "https://github.com/leightonsmith/ts-pnp.git#use-pnpify"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
